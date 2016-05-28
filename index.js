@@ -89,8 +89,8 @@ module.exports = function(S) {
 
       let _this = this;
 
-      if (!S.utils.dirExistsSync(path.join(S.config.projectPath, 'client', 'dist'))) {
-        return BbPromise.reject(new SError('Could not find "client/dist" folder in your project root.'));
+      if (!S.utils.dirExistsSync(path.join(S.config.projectPath, 'client', 'dist-s3'))) {
+        return BbPromise.reject(new SError('Could not find "client/dist-s3" folder in your project root.'));
       }
 
       // validate stage: make sure stage exists
@@ -113,7 +113,7 @@ module.exports = function(S) {
       }
 
       _this.bucketName = populatedProject.custom.client.bucketName;
-      _this.clientPath = path.join(_this.project.getRootPath(), 'client', 'dist');
+      _this.clientPath = path.join(_this.project.getRootPath(), 'client', 'dist-s3');
 
       return BbPromise.resolve();
     }
